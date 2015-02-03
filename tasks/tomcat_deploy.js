@@ -9,7 +9,7 @@
 'use strict';
 
 module.exports = function(grunt) {
-  var isDist = !grunt.config('tomcat_deploy').war;
+  var isDist = !grunt.config('tomcat_deploy.war');
   grunt.registerTask('tomcat_deploy_only', 'Deploy your files to a tomcat server.', function() {
 
     var done = this.async();
@@ -21,6 +21,7 @@ module.exports = function(grunt) {
     grunt.config.requires('tomcat_deploy.deploy');
     grunt.config.requires('tomcat_deploy.update');
     grunt.config.requires('tomcat_deploy.path');
+    grunt.config.requires('tomcat_deploy.src');
 
     var archive, tomcat;
     tomcat = grunt.config('tomcat_deploy');

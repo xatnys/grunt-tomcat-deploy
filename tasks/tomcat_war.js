@@ -16,15 +16,15 @@ module.exports = function(grunt) {
   var archive = tomcat.dist + '.war';
 
   grunt.loadNpmTasks('grunt-zip');
-  
+
   grunt.config('zip', {
     war: {
-      cwd: tomcat.dist,
+      cwd: tomcat.src,
       dest: archive,
-      src: [tomcat.dist + '/**']
+      src: [tomcat.src + '/**']
     }
   });
-  
+
   grunt.registerTask('tomcat_war', ['zip:war']);
 
 };
