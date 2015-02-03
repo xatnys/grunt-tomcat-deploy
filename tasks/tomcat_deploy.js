@@ -13,12 +13,13 @@ module.exports = function(grunt) {
   grunt.registerTask('tomcat_deploy_only', 'Deploy your files to a tomcat server.', function() {
 
     var done = this.async();
-    
+
     grunt.config.requires('tomcat_deploy.login');
     grunt.config.requires('tomcat_deploy.password');
     grunt.config.requires('tomcat_deploy.host');
     grunt.config.requires('tomcat_deploy.port');
     grunt.config.requires('tomcat_deploy.deploy');
+    grunt.config.requires('tomcat_deploy.update');
     grunt.config.requires('tomcat_deploy.path');
 
     var archive, tomcat;
@@ -31,15 +32,15 @@ module.exports = function(grunt) {
     else {
       archive = tomcat.war;
     }
-    
+
     var options = {
       auth: tomcat.login + ':' + tomcat.password,
       hostname: tomcat.host,
       port: tomcat.port,
-      path: tomcat.deploy + '?path=' + tomcat.path + '&update=false',
+      path: tomcat.deploy + '?path=' + tomcat.path + '&update=' + tomcat.update,
       method: 'PUT'
     };
-    
+
     var content = '';
 
     var req = require('http').request(options, function(res) {
@@ -75,7 +76,7 @@ module.exports = function(grunt) {
         req.end();
     });
 
-    
+
   });
   var redeploy = function (done ) {
     var tomcat = grunt.config('tomcat_deploy');

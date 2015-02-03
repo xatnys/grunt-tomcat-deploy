@@ -36,6 +36,7 @@ module.exports = function(grunt) {
       path: '/myapp',
       port: 8080,
       dist: 'dist',
+      update: false,
       deploy: '/manager/text/deploy',
       undeploy: '/manager/text/undeploy',
     },
