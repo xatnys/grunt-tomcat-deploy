@@ -1,7 +1,7 @@
 {
   "name": "grunt-tomcat-deploy",
   "description": "A grunt task for code deployment over the Tomcat Admin Web Application.",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "homepage": "https://github.com/elebescond/grunt-tomcat-deploy",
   "author": {
     "name": "Erwan Le Bescond",
@@ -28,7 +28,8 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "async": "0.2.10"
+    "async": "0.2.10",
+    "grunt-zip": "~0.10.0"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.6.0",
@@ -37,8 +38,7 @@
     "grunt": "~0.4.1"
   },
   "peerDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-zip": "~0.10.0"
+    "grunt": "~0.4.1"
   },
   "keywords": [
     "gruntplugin"
